@@ -18,7 +18,7 @@ const App = () => {
       const res = await axios.get(url)
       toArray.push(res.data)
       setPokemonType1(res.data.types[0].type.name)
-      if (res.data.types.length > 1 || res.data.types[1].type.name === "undefined") {
+      if (res.data.types.length > 1) {
         setPokemonType2(res.data.types[1].type.name)
       }
       setPokemonData(toArray)
