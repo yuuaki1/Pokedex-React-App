@@ -18,13 +18,24 @@ const App = () => {
       const res = await axios.get(url)
       toArray.push(res.data)
       setPokemonType1(res.data.types[0].type.name)
-      if (res.data.types.length > 1) {
+      if (res.data.types.length > 1 && res.data.types[0].type.name !== res.data.types[1].type.name) {
         setPokemonType2(res.data.types[1].type.name)
+      }
+      else {
+        setPokemonType2('')
       }
       setPokemonData(toArray)
       setAbility1(res.data.abilities[0].ability.name)
-      setAbility2(res.data.abilities[1].ability.name)
-      setAbility3(res.data.abilities[2].ability.name)
+      if (res.data.abilities.length > 1 && res.data.abilities[0].ability.name !== res.data.abilities[1].ability.name) {
+        setAbility2(res.data.abilities[1].ability.name)
+      } else {
+        setAbility2('')
+      }
+      if (res.data.abilities.length > 2) {
+        setAbility3(res.data.abilities[2].ability.name)
+      } else {
+        setAbility3('')
+      }
 
       console.log(res)
     } catch (e) {
