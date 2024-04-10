@@ -54,15 +54,16 @@ const App = () => {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           <input type='text' onChange={handleChange} placeholder='Enter Pokemon name' />
+          <button onClick={handleSubmit}>Search</button>
         </label>
       </form>
       {pokemonData.map((data) => { // Add "index" parameter
         return (
           <div className='container'>
-            <img src = {data.sprites["front_default"]}/>
+            <img src = {data.sprites["front_shiny"]}/>
             <div className='divTable'>
               <div className='divTableBody'></div>
                 <div className='divTableRow'>
